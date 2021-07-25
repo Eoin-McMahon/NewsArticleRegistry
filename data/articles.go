@@ -31,18 +31,18 @@ func (art*Articles) ToJSON(writer io.Writer) error {
     return enc.Encode(art)
 }
 
-// Return list of stored articles
+// Return list of articles
 func GetArticles() Articles {
     return articleList
 }
 
-// Add an article to our article list
+// Add an article to our list
 func AddArticle(art *Article) {
     art.ID = getNextID()
     articleList = append(articleList, art)
 }
 
-// Update article with specific id 
+// Update article with a specified ID
 func UpdateArticle(id int, art *Article) error {
     _, pos, err := findArticleByID(id)
     if err != nil {
@@ -55,13 +55,9 @@ func UpdateArticle(id int, art *Article) error {
     return err
 }
 
-func getNextID() int {
-    lastArticle := articleList[len(articleList)-1]
-    return lastArticle.ID + 1
-}
-
 var ErrArticleNotFound = fmt.Errorf("Article Not Found")
 
+// Search through article list for article with matching ID
 func findArticleByID(id int) (*Article, int, error) {
     for i, art := range articleList {
         if art.ID == id {
@@ -70,6 +66,12 @@ func findArticleByID(id int) (*Article, int, error) {
     }
         return nil, -1, ErrArticleNotFound
 }
+
+func getNextID() int {
+    lastArticle := articleList[len(articleList)-1]
+    return lastArticle.ID + 1
+}
+
 
 var articleList = Articles {
     &Article{
