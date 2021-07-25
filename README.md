@@ -8,7 +8,7 @@ This will be used by BriefMe! later, as the microservice to retrieve articles fr
 ### ⚡️Start the Server
 
 ```bash
-$ go run main.go
+$ go run news_article_receiver.go
 ```
 
 ### 🎯 Can be easily interacted with using `curl`
