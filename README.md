@@ -5,13 +5,13 @@ It can be interacted with by using http methods; `GET`, `POST` and `PUT`.
 
 This will be used by BriefMe! later, as the microservice to retrieve articles from.
 
-## ⚡️Start the Server
+### ⚡️Start the Server
 
 ```bash
 $ go run main.go
 ```
 
-## 🎯 Can be easily interacted with using `curl`
+### 🎯 Can be easily interacted with using `curl`
 
 ```bash
 $ curl localhost:9090 -X GET                    // Get Stored Articles
